@@ -1,0 +1,133 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+main .main-left {
+  width: 30%;
+  margin: 100px 0;
+  text-align: center;
+  border-right: black 1px solid;
+}
+
+main .main-left .lists {
+  list-style: none;
+}
+
+main .main-left .lists li {
+  background-color: #005dc5;
+  width: 60%;
+  height: 2em;
+  line-height: 2em;
+  border-radius: 1em;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: #fff;
+  margin: 10px auto;
+}
+
+main .main-left .lists li:hover {
+  cursor: pointer;
+}
+
+main input {
+  border: none;
+  border-bottom: 1px black solid;
+  width: 60%;
+  font-size: 1.5em;
+}
+
+main input:focus {
+  outline: none;
+}
+
+main button {
+  padding: 2% 5%;
+  margin-left: 3%;
+  border-radius: .8em;
+  color: #005dc5;
+  border-color: #005dc5;
+}
+
+main button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+main button:focus {
+  outline: none;
+}
+
+main .main-right {
+  -webkit-box-shadow: 0 0 8px gray;
+          box-shadow: 0 0 8px gray;
+  width: 50%;
+  background-color: white;
+  margin: 100px 0;
+  text-align: center;
+}
+
+main .main-right .done {
+  color: gray;
+  text-decoration: line-through;
+}
+
+main .main-right h1 {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+main .main-right .input-box {
+  padding: 3em;
+}
+
+main .main-right .input-box input {
+  width: 80%;
+  border-bottom: 2px black solid;
+}
+
+main .main-right .clear-box {
+  padding: 0 3em 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+main .main-right .clear-box p:hover {
+  cursor: pointer;
+  color: #ff0000;
+}
+
+main .main-right ul {
+  padding: 3em 3em 0;
+  list-style: none;
+}
+
+main .main-right ul li {
+  border-bottom: grey 1px solid;
+  text-align: left;
+  height: 2em;
+  line-height: 2em;
+}
+
+main .main-right ul li:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */
