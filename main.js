@@ -2,7 +2,6 @@
     'use strict';
 
     let lists = [];
-    let idCounter = 0;
 
     const lists_parent = document.getElementById('lists-parent')
     const todos_parent = document.getElementById('todos-parent')
@@ -15,18 +14,24 @@
     const clear_tasks = document.getElementById('clear-tasks')
     const main_container = document.getElementById('main-container')
 
-
-
     lists_btn.addEventListener('click', () => {
         if (!list_input.value) {
             return
         }
-        
+
+        const filteredList = lists.filter(list => list.name === list_input.value)
+        //Not allow duplicate list name 
+        if(filteredList.length){
+            alert('The list already exists !')
+            list_input.value = ''
+            return
+        }
+
         const newList = {
             name: list_input.value,
             todos: []
         }
-        
+
         lists.push(newList)
         appendLists(newList)
         list_input.value = ''
@@ -38,7 +43,7 @@
         lists_parent.appendChild(listName)
         title.textContent = list.name;
 
-        // generateTodos(list);
+        main_container.style.display = 'block'
         todos_parent.innerHTML = ''
 
         listName.addEventListener('click', () => {
@@ -57,7 +62,7 @@
                     todo: task_input.value,
                     done: false
                 })
-                generateTodos(list)
+                generateTodos(list) //@Note: realise that have to update both the js data and the UI if use valila JS!
             }
         })
         task_input.value = ''
@@ -105,9 +110,8 @@
             return
         }
         // console.log(lists)
-        const index = lists.findIndex((v) => v.name === title.textContent); //@TODO; not allow duplicate list name function
+        const index = lists.findIndex((v) => v.name === title.textContent); 
         // console.log(index)
-
         const filteredList = lists.filter(list => {
             return list.name !== title.textContent
         })
@@ -115,9 +119,18 @@
         lists = filteredList
         lists_parent.children[index].remove();
 
-        // console.log(lists)
+        console.log(lists.length)
         // console.log(lists[0])
-        title.textContent = lists[0].name;
-        generateTodos(lists[0]);
+        if (index === 0) {
+            if (lists.length === 0) {
+                main_container.style.display = 'none'
+                return
+            }
+            title.textContent = lists[0].name;
+            generateTodos(lists[0]);
+            return
+        }
+        title.textContent = lists[index - 1].name;
+        generateTodos(lists[index - 1]);
     })
 }
