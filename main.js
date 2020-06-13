@@ -62,7 +62,7 @@
                     todo: task_input.value,
                     done: false
                 })
-                generateTodos(list) //@Note: realise that have to update both the js data and the UI if use valila JS!
+                generateTodos(list)
             }
         })
         task_input.value = ''
@@ -85,7 +85,6 @@
 
             todos_parent.appendChild(todo);
         }
-        // console.log(lists[0].todos)
     }
 
     clear_tasks.addEventListener('click', () => {
@@ -98,9 +97,6 @@
         const filteredTodos = lists[index].todos.filter(todo => {
             return todo.done !== true
         })
-
-        // console.log(filteredTodos)
-
         lists[index].todos = filteredTodos;
         generateTodos(lists[index])
     })
@@ -109,9 +105,7 @@
         if (!lists.length) {
             return
         }
-        // console.log(lists)
         const index = lists.findIndex((v) => v.name === title.textContent); 
-        // console.log(index)
         const filteredList = lists.filter(list => {
             return list.name !== title.textContent
         })
@@ -120,7 +114,6 @@
         lists_parent.children[index].remove();
 
         console.log(lists.length)
-        // console.log(lists[0])
         if (index === 0) {
             if (lists.length === 0) {
                 main_container.style.display = 'none'
